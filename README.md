@@ -285,9 +285,9 @@ If this repository is useful for your research or project, please consider citin
 ```bibtex
 @misc{chinese_braille_mt5,
   title = {Chinese Braille-to-Text Translation with mT5},
-  author = {Your Name},
+  author = {Daxia123p},
   year = {2026},
-  howpublished = {\url{https://github.com/your-username/chinese-braille-mt5}}
+  howpublished = {\url{https://github.com/daxia123p/chinese-braille-mt5}}
 }
 ```
 
