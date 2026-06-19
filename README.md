@@ -4,6 +4,39 @@ Chinese Braille-to-text translation toolkit with data preprocessing, dataset gen
 
 This repository provides a pipeline for building Chinese Braille translation datasets and training an mT5-based sequence-to-sequence model to convert Chinese Braille text into ordinary Chinese text. It includes data preparation scripts, Braille-specific tokenizer expansion, model fine-tuning, evaluation, inference, and structured Braille decoding utilities.
 
+## Datasets
+
+The datasets used by this project are maintained in separate public repositories and are not covered by the MIT License of this source-code repository.
+
+## Chinese Source Corpus
+
+The sequence-level experiments use the 1,000,000-sentence subset of the zho_news_2007-2009 Chinese news corpus provided by the Leipzig Corpora Collection / Wortschatz Leipzig, Leipzig University.
+
+* Dataset repository: zho_news_2007-2009_1M
+
+* Included source file: zho_news_2007-2009_1M-sentences.txt
+
+* Original provider: Leipzig Corpora Collection / Wortschatz Leipzig
+
+* Original download page: Leipzig Chinese corpora downloads
+
+The repository contains the Chinese source text used by the preprocessing pipeline. Chinese–Braille parallel data are generated locally using the scripts in the data_preparation/ directory.
+
+This project does not claim ownership of the original Chinese sentences. Users must comply with the original corpus attribution and licensing requirements.
+
+## Natural-Scene Braille Image Dataset
+
+The image-based experiments use the Natural Scene Braille Character Recognition Dataset.
+
+* Dataset repository: natural_scene_braille
+
+* Original dataset DOI: 10.57760/sciencedb.j00188.00007
+
+* License: CC BY-NC-ND 4.0
+
+The dataset repository contains natural-scene Braille images, XML annotations, and the corresponding training and testing split files.
+
+The image dataset is third-party material and remains subject to its original CC BY-NC-ND 4.0 license. It is not covered by the MIT License of this repository.
 ## Features
 
 * Chinese Braille-to-text translation based on mT5
@@ -63,13 +96,19 @@ sacrebleu
 
 The data preparation scripts are located in the `data_preparation/` directory.
 
-### 1. Prepare raw Chinese text
+### 1. Prepare the Chinese Source Corpus
 
-Place the original Chinese corpus file under the `data/` directory. For example:
+Download or clone the Chinese source corpus from:
+
+zho_news_2007-2009_1M
+
+The required source file is:
 
 ```text
-data/zho_news_2007-2009_1M-sentences.txt
+zho_news_2007-2009_1M-sentences.txt
 ```
+
+The source corpus is maintained separately from this code repository and remains subject to its original attribution and licensing requirements.
 
 ### 2. Slice large text files
 
@@ -275,12 +314,16 @@ output-dirs/
 __pycache__/
 *.log
 ```
+The source datasets are maintained separately:
 
+* Chinese source corpus: https://github.com/daxia123p/zho_news_2007-2009_1M
+
+* Natural-scene Braille image dataset: https://github.com/daxia123p/natural_scene_braille
 If an external Braille conversion service is used, please make sure the data usage follows the service terms and privacy requirements.
 
 ## Citation
 
-If this repository is useful for your research or project, please consider citing or acknowledging this work.
+If this repository is useful for your research or project, please consider citing or acknowledging this work:
 
 ```bibtex
 @misc{chinese_braille_mt5,
@@ -290,7 +333,20 @@ If this repository is useful for your research or project, please consider citin
   howpublished = {\url{https://github.com/daxia123p/chinese-braille-mt5}}
 }
 ```
+Users of the zho_news_2007-2009 source corpus should also acknowledge the Leipzig Corpora Collection and cite the corresponding corpus publication.
+
+Users of the Natural Scene Braille Character Recognition Dataset should cite the original dataset using DOI 10.57760/sciencedb.j00188.00007.
 
 ## License
 
-This project is released under the MIT License.
+The source code and author-created scripts in this repository are released under the MIT License.
+
+The MIT License applies only to the software contained in this repository. It does not apply to:
+
+* the zho_news_2007-2009 Chinese source corpus;
+
+* the Natural Scene Braille Character Recognition Dataset;
+
+* third-party images, annotations, labels, or Chinese source text; or any other material identified as third-party data.
+
+The Chinese source corpus and the natural-scene Braille image dataset remain subject to their respective original licenses and attribution requirements. Users should review the licensing information in each dataset repository before downloading, using, modifying, or redistributing the data.
